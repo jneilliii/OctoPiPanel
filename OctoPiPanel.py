@@ -32,6 +32,7 @@ class OctoPiPanel():
     apikey = cfg.get('settings', 'apikey')
     updatetime = cfg.getint('settings', 'updatetime')
     backlightofftime = cfg.getint('settings', 'backlightofftime')
+    rotation = cfg.get('settings', 'rotation')
 
     if cfg.has_option('settings', 'window_width'):
         win_width = cfg.getint('settings', 'window_width')
@@ -42,6 +43,11 @@ class OctoPiPanel():
         win_height = cfg.getint('settings', 'window_height')
     else:
         win_height = 240
+        
+    if cfg.has_option('settings', 'rotation'):
+    	rotation = cfg.get('settings', 'rotation')
+    else:
+    	rotation = 'NONE'
 
     addkey = '?apikey={0}'.format(apikey)
     apiurl_printhead = '{0}/api/printer/printhead'.format(api_baseurl)
